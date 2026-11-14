@@ -20,10 +20,10 @@ const (
 func parseTraining(data string) (int, string, time.Duration, error) {
 	parts := strings.Split(data, ",")
 	if len(parts) != 3 {
-		return 0, "", 0, fmt.Errorf("incorrect number of arguments") 
+		return 0, "", 0, fmt.Errorf("incorrect number of arguments")
 	}
 
-	steps, err := strconv.Atoi([parts[0])
+	steps, err := strconv.Atoi(parts[0])
 	if err != nil {
 		return 0, "", 0, err
 	}
@@ -72,13 +72,13 @@ func TrainingInfo(data string, weight, height float64) (string, error) {
 		hours := dur.Hours()
 		dist := distance(steps, height)
 		speed := meanSpeed(steps, height, dur)
-		
+
 		result = fmt.Sprintf("Тип тренировки: %s\n", action) +
 			fmt.Sprintf("Длительность: %.2f ч.\n", hours) +
-			fmt.Sprintf("Дистанция: %.2f км.\n", dist) + 
+			fmt.Sprintf("Дистанция: %.2f км.\n", dist) +
 			fmt.Sprintf("Скорость: %.2f км/ч\n", speed) +
 			fmt.Sprintf("Сожгли калорий: %.2f\n", cal)
-		
+
 	case "Ходьба":
 		cal, err := WalkingSpentCalories(steps, weight, height, dur)
 		if err != nil {
@@ -88,10 +88,10 @@ func TrainingInfo(data string, weight, height float64) (string, error) {
 		hours := dur.Hours()
 		dist := distance(steps, height)
 		speed := meanSpeed(steps, height, dur)
-		
+
 		result = fmt.Sprintf("Тип тренировки: %s\n", action) +
 			fmt.Sprintf("Длительность: %.2f ч.\n", hours) +
-			fmt.Sprintf("Дистанция: %.2f км.\n", dist) + 
+			fmt.Sprintf("Дистанция: %.2f км.\n", dist) +
 			fmt.Sprintf("Скорость: %.2f км/ч\n", speed) +
 			fmt.Sprintf("Сожгли калорий: %.2f\n", cal)
 	default:
