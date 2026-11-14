@@ -1,7 +1,6 @@
 package daysteps
 
 import (
-	"errors"
 	"fmt"
 	"strconv"
 	"strings"
@@ -38,7 +37,7 @@ func parsePackage(data string) (int, time.Duration, error) {
 	}
 
 	if dur <= 0 {
-		return 0, 0, errors.New("duration is not positive")
+		return 0, 0, spentcalories.ErrDurNeg
 	}
 
 	return steps, dur, nil
